@@ -1,0 +1,51 @@
+/* 
+    Document   : style
+    Created on : 17.01.2012, 17:55:18
+    Author     : lukashoppner
+    Description:
+        Purpose of the stylesheet follows.
+*/
+#ajax-loader{
+    padding-top: 7px;
+    padding-right: 10px;
+}
+.topbar .brand{
+    font-weight: bold;
+    margin-right: 20px;
+}
+#searchdiv{
+    position: relative;
+}
+#search{
+    padding-right:25px;
+}
+#searchResultContainer{
+    position: absolute;
+    top: 45px;
+    right: 20px;
+    width: 250px;
+}
+#searchResultContainer table{
+    background-color: #fff;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+}
+#searchResults a{
+    color: #000;
+    shadow: none;
+}
+#inputFieldOverlay {
+    z-index:2;
+    position:absolute;
+    right: 8px;
+    top: 3px;
+}
+body{
+    padding-top: 60px;
+}
+pre{
+    max-height: 200px;
+    overflow: scroll;
+}
+.breadcrumb a{
+    color: #000;
+}

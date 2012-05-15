@@ -1,3 +1,78 @@
-<div class="hero-unit">
-    <h2>Message-Overview</h2>
+<div class="page-header">
+    <h1>Messages
+        <small>Stay in Contact!</small>
+    </h1>
+</div>
+<div class="row">
+    <div class="span2">
+        <table class="table-bordered table-condensed table-striped table">
+            <tr>
+                <td><a href="#!/messages/inbox">Inbox</a></td>
+            </tr>
+            <tr>
+                <td><a href="#!/messages/outbox">Outbox</a></td>
+            </tr>
+            <tr>
+                <td><a href="#!/messages/trash">Trash</a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="span10">
+        <form>
+            <div class="btn-toolbar">
+                <div class="btn-group">
+                    <a class="btn" href="#!/messages/new"><i class="icon-envelope"></i> New Message</a>
+                </div>
+                <div class="btn-group">
+                    <button class="btn" rel="tooltip" title="Delete"><i class="icon-trash"></i></button>
+                    <button class="btn" rel="tooltip" title="Mark Read"><i class="icon-eye-open"></i></button>
+                    <button class="btn" rel="tooltip" title="Favor"><i class="icon-star"></i></button>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th><i class="icon-check"></i></th>
+                    <th><i class="icon-eye-open"></i></th>
+                    <th><i class="icon-star"></i></th>
+                    <th><i class="icon-pushpin"></i></th>
+                    <th>From</th>
+                    <th>Subject</th>
+                    <th>Sent</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <? foreach($this->rows as $row){?>
+                    <tr>
+                        <td width="25">
+                            <input type="checkbox" name="checked" value="<?=$row['ID']?>">
+                        </td>
+                        <td width="25">
+                            <?=($row['read']) ? '<i class="icon-eye-open"></i>' : '<i class="icon-eye-close"></i>'?>
+                        </td>
+                        <td width="25">
+                            <?=($row['fav']) ? '<i class="icon-star"></i>' : '<i class="icon-star-empty"></i>'?>
+                        </td>
+                        <td width="25">
+                            <?=($row['attachment'] != "") ? '<i class="icon-pushpin"></i>' : ''?>
+                        </td>
+                        <td width="20%">
+                            <?=$row['from']?>
+                        </td>
+                        <td width="45%">
+                            <a href="#!/messages/view/<?=$row['ID']?>"><?=$row['subject']?></a>
+                        </td>
+                        <td width="18%">
+                            <?=$row['sent']?>
+                        </td>
+                        <td width="25">
+                            <a href="#!/messages/delete/<?=$row['ID']?>"><i class="icon-trash"></i></a>
+                        </td>
+                    </tr>
+                    <? } ?>
+                </tbody>
+            </table>
+        </form>
+    </div>
 </div>

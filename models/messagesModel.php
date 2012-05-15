@@ -1,6 +1,8 @@
 <?php
 class MessagesModel extends Model{
-    //put your code here
+    function __construct() {
+        $this->init();
+    }
 }
 
 ?>

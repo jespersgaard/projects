@@ -1,5 +1,5 @@
 <?php
-class SettingsModel extends Model{
+class settingsModel extends Model{
     //put your code here
 }
 

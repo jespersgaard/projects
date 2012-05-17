@@ -41,7 +41,6 @@ abstract class Controller {
     
     public static function redirect($page){
         echo '<div id="redirect">'.$page.'</div>';
-        //exit(1);
     }
     
     public static function alert($text, $type){

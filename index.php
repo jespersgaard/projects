@@ -53,6 +53,7 @@ require_once 'settings.php';
             </div>
             <div>
                 <ul class="nav pull-right">
+                    <li id="ajax-loader"><img src="img/ajax-loader.gif"></li>
                     <li id="search">
                         <a rel="tooltip" title="Search"><i class="icon-search"></i></a>
                     </li><li>
@@ -62,9 +63,9 @@ require_once 'settings.php';
                     </li>
                 </ul>
             </div>
-            <div class="pull-right">
+            <!--<div class="pull-right">
                 <div id="ajax-loader"><img src="img/ajax-loader.gif"></div>
-            </div>
+            </div>-->
         </div>
       </div>
     </div>

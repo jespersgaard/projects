@@ -6,7 +6,7 @@ function doAfterLoading(data){
     
     $('#alertArea').append($('.alert', parsedData));
     if($('#redirect', parsedData).length > 0){
-        location.hash = "!/" + $('#redirect', parsedData).html();
+        location.replace("#!/" + $('#redirect', parsedData).html());
     }
     else {
 
@@ -29,6 +29,11 @@ function doAfterLoading(data){
             $(this).slideUp(200);
         })
         $('.alert').slideDown(200);
+        
+        $('.back').click(function(){
+            history.back();
+            return false;
+        });
 
         $('#form').bind('submit', function(){
             var data = $(this).serialize();

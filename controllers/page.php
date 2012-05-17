@@ -61,12 +61,16 @@ if (file_exists($classFile)){
         $object->render($method);
     }
     else {
+        echo '<div id="content">';
         require_once '../views/notFound.html';
+        echo '</div>';
     }
 
 }
 else {
+    echo '<div id="content">';
     require_once '../views/notFound.html';
+    echo '</div>';
 }
 
 echo '</div>';

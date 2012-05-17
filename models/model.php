@@ -49,10 +49,27 @@ abstract class Model {
         $query .= ')';
         
         if(mysql_query($query)){
-            return mysql_error();;
+            return mysql_error();
         }
         else {
             return mysql_error();
+        }
+    }
+    
+    public function remove($id){
+        $query = "DELETE FROM $this->table WHERE ID=$id";
+        if(mysql_query($query)){
+            return mysql_error();
+        }
+        else {
+            return mysql_error();
+        }
+    }
+
+
+    function __destruct() {
+        if ($this->dbConnection != null){
+            mysql_close($this->dbConnection);
         }
     }
 }

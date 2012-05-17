@@ -13,10 +13,13 @@ require_once 'settings.php';
     <link href="fontAwesome/css/font-awesome.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     
-    <script src="jquery.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
     <script src="prettify/prettify.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap-transition.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap-tooltip.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap-popover.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap-dropdown.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap-alert.js" type="text/javascript"></script>
     <script src="jquery.ba-outside-events.min.js" type="text/javascript"></script>
     <!--<script src="less.js" type="text/javascript"></script>-->
     <script src="script.js" type="text/javascript"></script>
@@ -26,14 +29,14 @@ require_once 'settings.php';
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="#!/dashboard"><?=$projectName?></a>
+            <a class="brand" href="#!/"><?=$projectName?></a>
             <ul class="nav">
-                <li class="active"><a href="#!/dashboard" rel="tooltip" title="Dashboard"><i class="icon-th-large icon-white"></i></a></li>
-                <li><a href="#!/projects" rel="tooltip" title="Projects" id="projects"><i class="icon-folder-open icon-white"></i></a></li>
-                <li><a href="#!/messages" rel="tooltip" title="Messages"><i class="icon-inbox icon-white"></i></a></li>
-                <li><a href="#!/calendar" rel="tooltip" title="Calendar"><i class="icon-calendar icon-white"></i></a></li>
-                <li><a href="#!/tasks" rel="tooltip" title="Tasks"><i class="icon-list icon-white"></i></a></li>
-                <li><a href="#!/files" rel="tooltip" title="Files"><i class="icon-file icon-white"></i></a></li>
+                <li><a href="#!/dashboard" rel="tooltip" title="Dashboard"><i class="icon-th-large"></i></a></li>
+                <li><a href="#!/projects" rel="tooltip" title="Projects"><i class="icon-folder-open"></i></a></li>
+                <li><a href="#!/messages" rel="tooltip" title="Messages"><i class="icon-inbox"></i></a></li>
+                <li><a href="#!/calendar" rel="tooltip" title="Calendar"><i class="icon-calendar"></i></a></li>
+                <li><a href="#!/tasks" rel="tooltip" title="Tasks"><i class="icon-list"></i></a></li>
+                <li><a href="#!/files" rel="tooltip" title="Files"><i class="icon-file"></i></a></li>
             </ul>
             <div id="searchdiv">
                 <!--<form action="" class="navbar-search pull-right">
@@ -50,9 +53,13 @@ require_once 'settings.php';
             </div>
             <div>
                 <ul class="nav pull-right">
-                    <li id="search"><a rel="tooltip" title="Search"><i class="icon-search icon-white"></i></a></li>
-                    <li><a href="#!/settings" rel="tooltip" title="Settings"><i class="icon-cogs icon-white"></i></a></li>
-                    <li><a href="#" rel="tooltip" title="Logout"><i class="icon-signout icon-white"></i></a></li>
+                    <li id="search">
+                        <a rel="tooltip" title="Search"><i class="icon-search"></i></a>
+                    </li><li>
+                        <a href="#!/settings" rel="tooltip" title="Settings"><i class="icon-cogs"></i></a>
+                    </li><li>
+                        <a href="#!/logout" rel="tooltip" title="Logout"><i class="icon-signout"></i></a>
+                    </li>
                 </ul>
             </div>
             <div class="pull-right">
@@ -62,12 +69,16 @@ require_once 'settings.php';
       </div>
     </div>
     <div class="container" id="body">
+        <div id="alertArea">    
+        </div>
+        <div id="breadcrumb">
+        </div>
         <div id="content">
         </div>
-      <footer>
-        <p>&copy; 2012</p>
-      </footer>
-
+        <footer class="footer">
+            <p>&copy; projects 2012</p>
+            <p><a href="https://github.com/Wuschli/projects" target="_blank"><i class="icon-github-sign"></i> Visit projects on Github!</a></p>
+        </footer>
     </div> <!-- /container -->
   </body>
 </html>

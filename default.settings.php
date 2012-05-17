@@ -9,4 +9,5 @@ $database = array(
     'prefix' => "projects_"
     );
 $projectName = 'projects';
+$mainPage = 'dashboard';
 ?>

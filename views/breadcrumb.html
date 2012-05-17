@@ -1,17 +1,19 @@
-<ul class="breadcrumb">
-    <?php
-    if ($class==$defaultClass){
-    echo '<li class="active"><i class="icon-home"></i></li>';
-    }
-    else{
-    echo '<li><a href="#"><i class="icon-home"></i></a><span class="divider">/</span></li>';
-        if ($method == 'index'){
-            echo '<li class="active">'.$class.'</li>';
+<div id="breadcrumb">
+    <ul class="breadcrumb">
+        <?php
+        if ($class==$defaultClass){
+        echo '<li class="active"><i class="icon-home"></i></li>';
         }
-        else {
-            echo '<li><a href="#!/'.strtolower($class).'">'.$class.'</a><span class="divider">/</span></li>
-                <li class="active">'.ucfirst($method).'</li>';
+        else{
+        echo '<li><a href="#"><i class="icon-home"></i></a><span class="divider">/</span></li>';
+            if ($method == 'index'){
+                echo '<li class="active">'.$class.'</li>';
+            }
+            else {
+                echo '<li><a href="#!/'.strtolower($class).'">'.$class.'</a><span class="divider">/</span></li>
+                    <li class="active">'.ucfirst($method).'</li>';
+            }
         }
-    }
-    ?>
-</ul>
+        ?>
+    </ul>
+</div>

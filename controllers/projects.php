@@ -19,5 +19,9 @@ class Projects extends Controller {
             $this->success = $this->Projects->add($this->data);
         }
     }
+
+    public function pre() {
+        
+    }
 }
 ?>

@@ -5,17 +5,26 @@
 </div>
 <div class="row">
     <div class="span2">
-        <table class="table-bordered table-condensed table-striped table">
-            <tr>
-                <td><a href="#!/messages/inbox">Inbox</a></td>
-            </tr>
-            <tr>
-                <td><a href="#!/messages/outbox">Outbox</a></td>
-            </tr>
-            <tr>
-                <td><a href="#!/messages/trash">Trash</a></td>
-            </tr>
-        </table>
+        <div class="well folderview">
+            <ul class="nav nav-list">
+                <li class="active">
+                    <a href="#!/messages/inbox">
+                        <i class="icon-download-alt"></i>
+                        Inbox
+                    </a>
+                </li>
+                <li>
+                    <a href="#!/messages/outbox">
+                        <i class="icon-upload-alt"></i>
+                        Outbox
+                    </a>
+                </li>
+                <li><a href="#!/messages/trash">
+                        <i class="icon-trash"></i>Trash
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="span10">
         <form>
@@ -29,7 +38,7 @@
                     <button class="btn" rel="tooltip" title="Favor"><i class="icon-star"></i></button>
                 </div>
             </div>
-            <table class="table">
+            <table class="table table-condensed">
                 <thead>
                 <tr>
                     <th><i class="icon-check"></i></th>
@@ -49,7 +58,7 @@
                             <input type="checkbox" name="checked" value="<?=$row['ID']?>">
                         </td>
                         <td width="25">
-                            <?=($row['read']) ? '<i class="icon-eye-open"></i>' : '<i class="icon-eye-close"></i>'?>
+                            <?=($row['read']) ? '' : '<i class="icon-eye-open"></i>'?>
                         </td>
                         <td width="25">
                             <?=($row['fav']) ? '<i class="icon-star"></i>' : '<i class="icon-star-empty"></i>'?>

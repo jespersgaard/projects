@@ -1,28 +1,43 @@
 function doAfterLoading(data){
     
-    $('#content').html(data);
-
-    //add active class to icon
-    var hash = location.hash;
-    hash = hash.substring(3, hash.length);
-    var category = '#!/' + hash.split('/')[0];
-    $('.nav li').removeClass('active');
-    $('.nav a[href="'+category+'"]').parent().addClass('active');
-
-    $('#ajax-loader').hide();
+    var parsedData = $(data);
+    var content = $('#content', parsedData);
+    var breadcrumb = $('#breadcrumb', parsedData);
     
-    $('#searchResultContainer').hide(200);
-    
-    $('[rel=tooltip]').tooltip({placement : 'bottom'});
+    $('#alertArea').append($('.alert', parsedData));
+    if($('#redirect', parsedData).length > 0){
+        location.hash = "!/" + $('#redirect', parsedData).html();
+    }
+    else {
 
-    $('#form').bind('submit', function(){
-        var data = $(this).serialize();
-        $('#result').html(data);
-        hash = split(hash, '/');
-        loadPage(hash[0], data);
-        return false;
-    });
+        $('#breadcrumb').html(breadcrumb);
+        $('#content').html(content);
 
+        //add active class to icon
+        var hash = location.hash;
+        hash = hash.substring(3, hash.length);
+        var category = '#!/' + hash.split('/')[0];
+        $('.navbar li').removeClass('active');
+        $('.nav a[href="'+category+'"]').parent().addClass('active');
+
+        $('#searchResultContainer').hide(200);
+
+        $('[rel=tooltip]').tooltip({placement : 'bottom'});
+
+        //$().alert();
+        $('.alert').bind('close', function(){
+            $(this).slideUp(200);
+        })
+        $('.alert').slideDown(200);
+
+        $('#form').bind('submit', function(){
+            var data = $(this).serialize();
+            $('#result').html(data);
+            hash = split(hash, '/');
+            loadPage(hash[0], data);
+            return false;
+        });
+    }
 }
 
 function loadPage(page, data){
@@ -36,15 +51,16 @@ function loadPage(page, data){
         url: 'controllers/page.php',
         data: 'page=' + page + data,
         type: 'POST',
-        success: function(data){
+        error: function(data){
+            alert("bla");
+        },
+        success: function(data, status){
             doAfterLoading(data);
         }
     });
 }
 
 function hashChangeCallback(){
-    
-    $('#ajax-loader').show();
     var hash = location.hash;
     hash = hash.substr(3, hash.length);   
     loadPage(hash);
@@ -88,10 +104,16 @@ $(function(){
       'placement': 'below'
     })
     
-    $('#search').click(function(){
-        $('#searchResultContainer').toggle(200);
-        $(this).tooltip('toggle');
+    $("#ajax-loader").bind("ajaxSend", function(){
+        $(this).show();
+    }).bind("ajaxComplete", function(){
+        $(this).fadeOut(300);
     });
+    
+//    $('#search').click(function(){
+//        $('#searchResultContainer').toggle(200);
+//        $(this).tooltip('toggle');
+//    });
     
     //$('#search').focus(liveSearch);
 

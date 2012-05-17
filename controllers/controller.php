@@ -30,12 +30,25 @@ abstract class Controller {
     public function render($method = 'index'){
         $filename = '../views/'.strtolower(get_class($this)).'/'.$method.'.html';
         if (file_exists($filename)){
+            echo '<div id="content">';
             require_once $filename;
+            echo '</div>';
         }
-        else{
-            require_once '../views/templateNotFound.html';
-        }
+//        else{
+//            require_once '../views/templateNotFound.html';
+//        };
     }
+    
+    public static function redirect($page){
+        echo '<div id="redirect">'.$page.'</div>';
+        //exit(1);
+    }
+    
+    public static function alert($text, $type){
+        echo '<div class="alert alert-'.$type.' hide fade in"><button class="close" data-dismiss="alert">×</button>'.$text.'</div>';
+    }
+
+    abstract public function pre();
 }
 
 ?>

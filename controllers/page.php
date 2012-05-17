@@ -3,6 +3,8 @@ require_once '../settings.php';
 require_once 'controller.php';
 require_once '../models/model.php';
 
+ob_start();
+
 $data = $_POST;
 $page = $data['page'];
 $url = explode("/", $page);
@@ -15,41 +17,48 @@ $params = array_slice($url, 2);
 unset ($data['page']);
 
 
+echo '<div id="data">';
+
 if ($class == ''){
-    $class = $defaultClass;
-    $classFile = $defaultFile;
+    Controller::redirect($mainPage);
 }
 if ($method == ''){
         $method = 'index';
 }
 if (file_exists($classFile)){
     
+    
     $modelFile = '../models/'.strtolower($class).'Model.php';
     $model = $class.'Model';
+    
+    require_once $classFile;
+    $object = new $class;
+    $object->pre();
+    
     if (file_exists($modelFile)){
-        require_once $classFile;
         require_once $modelFile;
-        $object = new $class;
         $object->$class = new $model;
-        if (!empty ($data)){
+        
+    }
+//    else {
+//        require_once '../views/notFound.html';
+//    }
+    
+    if (!empty ($data)){
             $object->setData($data);        
-        }
+    }
 
-        if (method_exists($class, $method)){
-            include '../views/breadcrumb.html';
+    if (method_exists($class, $method)){
+        include_once '../views/breadcrumb.html';
 
-            $object->setParams($params);
-            if (count($params) > 0){
-                $object->$method($params[0]);
-            }
-            else {
-                $object->$method();
-            }
-            $object->render($method);
+        $object->setParams($params);
+        if (count($params) > 0){
+            $object->$method($params[0]);
         }
         else {
-            require_once '../views/notFound.html';
+            $object->$method();
         }
+        $object->render($method);
     }
     else {
         require_once '../views/notFound.html';
@@ -59,3 +68,6 @@ if (file_exists($classFile)){
 else {
     require_once '../views/notFound.html';
 }
+
+echo '</div>';
+ob_end_flush();

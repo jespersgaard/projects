@@ -1,6 +1,8 @@
 #projects
 ####a social project management system
 
+`note: this project is only a rough idea yet!` 
+
 ##aim
 The aim of 'projects' is to develop a decentralized social project management system that can be run on a simple php/mysql-webserver.
 

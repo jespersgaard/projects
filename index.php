@@ -13,7 +13,7 @@ require_once 'settings.php';
     <link href="fontAwesome/css/font-awesome.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     
-    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+    <script src="jquery.js" type="text/javascript"></script>
     <script src="prettify/prettify.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap-transition.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap-tooltip.js" type="text/javascript"></script>
@@ -31,12 +31,24 @@ require_once 'settings.php';
         <div class="container">
             <a class="brand" href="#!/"><?=$projectName?></a>
             <ul class="nav">
-                <li><a href="#!/dashboard" rel="tooltip" title="Dashboard"><i class="icon-th-large"></i></a></li>
-                <li><a href="#!/projects" rel="tooltip" title="Projects"><i class="icon-folder-open"></i></a></li>
-                <li><a href="#!/messages" rel="tooltip" title="Messages"><i class="icon-inbox"></i></a></li>
-                <li><a href="#!/calendar" rel="tooltip" title="Calendar"><i class="icon-calendar"></i></a></li>
-                <li><a href="#!/tasks" rel="tooltip" title="Tasks"><i class="icon-list"></i></a></li>
-                <li><a href="#!/files" rel="tooltip" title="Files"><i class="icon-file"></i></a></li>
+                <li>
+                	<a href="#!/dashboard" rel="tooltip" title="Dashboard"><i class="icon-th-large"></i></a>
+                </li>
+                <li>
+                	<a href="#!/projects" rel="tooltip" title="Projects"><i class="icon-folder-open"></i></a>
+                </li>
+                <li>
+                	<a href="#!/messages" rel="tooltip" title="Messages"><i class="icon-inbox"></i></a>
+            	</li>
+                <li>
+                	<a href="#!/calendar" rel="tooltip" title="Calendar"><i class="icon-calendar"></i></a>
+            	</li>
+                <li>
+                	<a href="#!/tasks" rel="tooltip" title="Tasks"><i class="icon-list"></i></a>
+            	</li>
+                <li>
+                	<a href="#!/files" rel="tooltip" title="Files"><i class="icon-file"></i></a>
+            	</li>
             </ul>
             <div id="searchdiv">
                 <!--<form action="" class="navbar-search pull-right">
@@ -53,19 +65,23 @@ require_once 'settings.php';
             </div>
             <div>
                 <ul class="nav pull-right">
-                    <li id="ajax-loader"><img src="img/ajax-loader.gif"></li>
+                    <li id="ajax-loader">
+                    	<img src="img/ajax-loader.gif">
+                    </li>
                     <li id="search">
                         <a rel="tooltip" title="Search"><i class="icon-search"></i></a>
-                    </li><li>
+                    </li>
+                    <li>
                         <a href="#!/settings" rel="tooltip" title="Settings"><i class="icon-cogs"></i></a>
-                    </li><li>
+                    </li>
+                    <li>
+                        <a href="#!/login" rel="tooltip" title="Login"><i class="icon-signin"></i></a>
+                    </li>
+                    <li>
                         <a href="#!/logout" rel="tooltip" title="Logout"><i class="icon-signout"></i></a>
                     </li>
                 </ul>
             </div>
-            <!--<div class="pull-right">
-                <div id="ajax-loader"><img src="img/ajax-loader.gif"></div>
-            </div>-->
         </div>
       </div>
     </div>
